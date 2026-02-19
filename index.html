@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rim GHANNAM — Portfolio</title>
+  <link rel="shortcut icon" href="./assets/images/aaabbbccc.png" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <style>
+    :root {
+      --bg: #0d0d12;
+      --bg-card: #13131a;
+      --bg-card2: #1a1a24;
+      --border: rgba(255,255,255,0.07);
+      --accent: #c46be3;
+      --accent2: #8b3db0;
+      --accent-glow: rgba(196,107,227,0.18);
+      --text: #f0eef5;
+      --text-muted: #9490a5;
+      --text-dim: #6b6778;
+      --radius: 16px;
+      --radius-sm: 8px;
+      --transition: 0.25s ease;
+      --sidebar-w: 280px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.65;
+    }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg); }
+    ::-webkit-scrollbar-thumb { background: var(--accent2); border-radius: 99px; }
+
+    /* ── TYPOGRAPHY ── */
+    h1, h2, h3, h4 { font-family: 'Syne', sans-serif; line-height: 1.2; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ── LAYOUT ── */
+    .layout {
+      display: grid;
+      grid-template-columns: var(--sidebar-w) 1fr;
+      min-height: 100vh;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 32px 20px;
+      gap: 28px;
+    }
+
+    @media (max-width: 900px) {
+      .layout { grid-template-columns: 1fr; padding: 16px; gap: 16px; }
+    }
+
+    /* ── SIDEBAR ── */
+    .sidebar {
+      position: sticky;
+      top: 32px;
+      align-self: start;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    @media (max-width: 900px) {
+      .sidebar { position: relative; top: 0; }
+    }
+
+    .sidebar-top {
+      padding: 32px 24px 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      background: linear-gradient(160deg, #1e1529 0%, var(--bg-card) 60%);
+    }
+
+    .avatar-wrap {
+      position: relative;
+      width: 100px;
+      height: 100px;
+    }
+
+    .avatar-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--accent2), transparent);
+      z-index: 0;
+    }
+
+    .avatar-wrap img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      position: relative;
+      z-index: 1;
+      border: 3px solid var(--bg-card);
+    }
+
+    .sidebar-name {
+      font-size: 20px;
+      font-weight: 700;
+      text-align: center;
+      color: var(--text);
+    }
+
+    .sidebar-role {
+      font-size: 13px;
+      color: var(--accent);
+      text-align: center;
+      background: var(--accent-glow);
+      padding: 4px 14px;
+      border-radius: 99px;
+      border: 1px solid rgba(196,107,227,0.25);
+    }
+
+    .sidebar-toggle-btn {
+      display: none;
+      width: 100%;
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-family: inherit;
+      font-size: 13px;
+      cursor: pointer;
+      padding: 10px 24px;
+      text-align: left;
+      gap: 8px;
+      align-items: center;
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 900px) {
+      .sidebar-toggle-btn { display: flex; }
+      .sidebar-contacts { display: none; }
+      .sidebar-contacts.open { display: block; }
+    }
+
+    .sidebar-contacts {
+      padding: 20px 24px;
+      border-top: 1px solid var(--border);
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      list-style: none;
+    }
+
+    .contact-item:last-child { border-bottom: none; }
+
+    .contact-icon {
+      width: 36px;
+      height: 36px;
+      min-width: 36px;
+      background: var(--bg-card2);
+      border-radius: var(--radius-sm);
+      display: grid;
+      place-items: center;
+      color: var(--accent);
+      font-size: 16px;
+    }
+
+    .contact-label {
+      font-size: 11px;
+      color: var(--text-dim);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .contact-value {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .contact-value a { color: var(--text-muted); }
+    .contact-value a:hover { color: var(--accent); }
+
+    .sidebar-social {
+      padding: 16px 24px;
+      display: flex;
+      gap: 10px;
+      border-top: 1px solid var(--border);
+    }
+
+    .social-link {
+      width: 36px;
+      height: 36px;
+      background: var(--bg-card2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      display: grid;
+      place-items: center;
+      color: var(--text-muted);
+      font-size: 18px;
+      transition: var(--transition);
+    }
+
+    .social-link:hover { background: var(--accent-glow); color: var(--accent); border-color: var(--accent); }
+
+    /* ── MAIN ── */
+    .main-content { min-width: 0; }
+
+    /* ── TOPBAR (lang + nav) ── */
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .navbar {
+      display: flex;
+      gap: 4px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 99px;
+      padding: 4px;
+    }
+
+    .nav-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      font-family: 'Syne', sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 8px 18px;
+      border-radius: 99px;
+      cursor: pointer;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .nav-btn:hover { color: var(--text); }
+    .nav-btn.active {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff;
+    }
+
+    .lang-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 99px;
+      padding: 7px 16px;
+      color: var(--text-muted);
+      font-family: 'Syne', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+      letter-spacing: 0.05em;
+    }
+
+    .lang-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .lang-flag { font-size: 16px; }
+
+    /* ── PAGES ── */
+    .page { display: none; }
+    .page.active { display: block; }
+
+    /* ── SECTION HEADER ── */
+    .page-header {
+      margin-bottom: 32px;
+    }
+
+    .page-title {
+      font-size: clamp(26px, 4vw, 36px);
+      font-weight: 800;
+      background: linear-gradient(90deg, var(--text) 40%, var(--accent));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .page-title-line {
+      width: 48px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      border-radius: 99px;
+      margin-top: 10px;
+    }
+
+    /* ── ABOUT ── */
+    .about-text {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      margin-bottom: 32px;
+    }
+
+    .about-text p {
+      color: var(--text-muted);
+      font-size: 15px;
+      margin-bottom: 14px;
+    }
+
+    .about-text p:last-child { margin-bottom: 0; }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .skill-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px 20px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .skill-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px;
+      height: 100%;
+      background: linear-gradient(180deg, var(--accent), var(--accent2));
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .skill-card:hover { border-color: rgba(196,107,227,0.3); transform: translateY(-2px); }
+    .skill-card:hover::before { opacity: 1; }
+
+    .skill-icon {
+      width: 48px;
+      height: 48px;
+      min-width: 48px;
+      background: var(--bg-card2);
+      border-radius: var(--radius-sm);
+      display: grid;
+      place-items: center;
+    }
+
+    .skill-icon img { width: 28px; height: 28px; object-fit: contain; }
+
+    .skill-card h4 {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+
+    .skill-card p {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* ── SECTION TITLE ── */
+    .section-title {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-title ion-icon {
+      color: var(--accent);
+      font-size: 20px;
+    }
+
+    /* ── TIMELINE ── */
+    .timeline {
+      margin-bottom: 40px;
+    }
+
+    .timeline-list {
+      list-style: none;
+      position: relative;
+      padding-left: 28px;
+    }
+
+    .timeline-list::before {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, var(--accent), transparent);
+    }
+
+    .timeline-item {
+      position: relative;
+      padding: 20px 0 20px 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .timeline-item:last-child { border-bottom: none; }
+
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -24px;
+      top: 28px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--accent);
+      border: 2px solid var(--bg);
+      box-shadow: 0 0 8px var(--accent);
+    }
+
+    .timeline-item h4 {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .timeline-meta {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 8px;
+    }
+
+    .timeline-date {
+      font-size: 12px;
+      color: var(--accent);
+      background: var(--accent-glow);
+      padding: 2px 10px;
+      border-radius: 99px;
+    }
+
+    .timeline-place {
+      font-size: 12px;
+      color: var(--text-dim);
+    }
+
+    .timeline-text {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    /* ── PROJECTS ── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .project-card:hover { border-color: rgba(196,107,227,0.35); transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+
+    .project-thumb {
+      position: relative;
+      aspect-ratio: 16/10;
+      overflow: hidden;
+    }
+
+    .project-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: 0.4s ease;
+    }
+
+    .project-card:hover .project-thumb img { transform: scale(1.05); }
+
+    .project-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(196,107,227,0.3);
+      display: grid;
+      place-items: center;
+      opacity: 0;
+      transition: var(--transition);
+    }
+
+    .project-card:hover .project-overlay { opacity: 1; }
+
+    .project-overlay ion-icon {
+      font-size: 32px;
+      color: #fff;
+    }
+
+    .project-info {
+      padding: 16px;
+    }
+
+    .project-info h3 {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .project-tag {
+      font-size: 12px;
+      color: var(--accent);
+    }
+
+    /* ── CONTACT ── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    @media (max-width: 680px) {
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+
+    .map-box {
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      aspect-ratio: 4/3;
+    }
+
+    .map-box iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+
+    .contact-form-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+    }
+
+    .contact-form-box p.form-intro {
+      font-size: 14px;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    .form-group { margin-bottom: 16px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+    @media (max-width: 480px) { .form-row { grid-template-columns: 1fr; } }
+
+    .form-input {
+      width: 100%;
+      background: var(--bg-card2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 12px 14px;
+      color: var(--text);
+      font-family: inherit;
+      font-size: 14px;
+      transition: var(--transition);
+      outline: none;
+    }
+
+    .form-input:focus { border-color: var(--accent); }
+    .form-input::placeholder { color: var(--text-dim); }
+
+    textarea.form-input {
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .submit-btn {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      border: none;
+      color: #fff;
+      font-family: 'Syne', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 12px 28px;
+      border-radius: 99px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: var(--transition);
+      width: 100%;
+      justify-content: center;
+    }
+
+    .submit-btn:hover { opacity: 0.85; transform: translateY(-1px); }
+    .submit-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+
+    /* ── CV ── */
+    .cv-section {
+      display: grid;
+      gap: 24px;
+    }
+
+    /* ── NOISE OVERLAY ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 999;
+      opacity: 0.4;
+    }
+
+    /* ── RESPONSIVE NAV ── */
+    @media (max-width: 600px) {
+      .navbar { flex-wrap: wrap; border-radius: var(--radius); }
+      .nav-btn { font-size: 12px; padding: 6px 12px; }
+      .topbar { gap: 8px; }
+    }
+
+    /* ── FADE IN ANIMATION ── */
+    .page.active .page-header,
+    .page.active .about-text,
+    .page.active .skills-grid,
+    .page.active .timeline,
+    .page.active .projects-grid,
+    .page.active .contact-grid,
+    .page.active .cv-section {
+      animation: fadeUp 0.4s ease forwards;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .i18n { transition: opacity 0.2s; }
+  </style>
+</head>
+<body>
+
+<div class="layout">
+
+  <!-- ── SIDEBAR ── -->
+  <aside class="sidebar">
+    <div class="sidebar-top">
+      <div class="avatar-wrap">
+        <img src="./assets/images/aaabbbccc.png" alt="Rim GHANNAM">
+      </div>
+      <div class="sidebar-name">Rim GHANNAM</div>
+      <div class="sidebar-role i18n" data-fr="Alternante Technicienne Hébergement" data-en="Hosting Technician Apprentice">Alternante Technicienne Hébergement</div>
+    </div>
+
+    <button class="sidebar-toggle-btn" id="sidebarToggle">
+      <ion-icon name="chevron-down-outline" id="toggleIcon"></ion-icon>
+      <span class="i18n" data-fr="Afficher les Contacts" data-en="Show Contacts">Afficher les Contacts</span>
+    </button>
+
+    <div class="sidebar-contacts" id="sidebarContacts">
+      <ul>
+        <li class="contact-item">
+          <div class="contact-icon"><ion-icon name="flag-outline"></ion-icon></div>
+          <div>
+            <div class="contact-label i18n" data-fr="Nationalité" data-en="Nationality">Nationalité</div>
+            <div class="contact-value i18n" data-fr="Libanaise" data-en="Lebanese">Libanaise</div>
+          </div>
+        </li>
+        <li class="contact-item">
+          <div class="contact-icon"><ion-icon name="mail-outline"></ion-icon></div>
+          <div>
+            <div class="contact-label i18n" data-fr="Adresse de courrier" data-en="Email">Adresse de courrier</div>
+            <div class="contact-value"><a href="mailto:rim.ghannam@gmail.com">rim.ghannam@gmail.com</a></div>
+          </div>
+        </li>
+        <li class="contact-item">
+          <div class="contact-icon"><ion-icon name="phone-portrait-outline"></ion-icon></div>
+          <div>
+            <div class="contact-label i18n" data-fr="Téléphone professionnel" data-en="Professional Phone">Téléphone professionnel</div>
+            <div class="contact-value"><a href="tel:+33473980988">+33 04 73 98 09 88</a></div>
+          </div>
+        </li>
+        <li class="contact-item">
+          <div class="contact-icon"><ion-icon name="calendar-outline"></ion-icon></div>
+          <div>
+            <div class="contact-label i18n" data-fr="Date de Naissance" data-en="Date of Birth">Date de Naissance</div>
+            <div class="contact-value">
+              <span class="i18n" data-fr="22 ans" data-en="22 years old">22 ans</span><br>
+              <span class="i18n" data-fr="12 Novembre 2003" data-en="November 12, 2003">12 Novembre 2003</span>
+            </div>
+          </div>
+        </li>
+        <li class="contact-item">
+          <div class="contact-icon"><ion-icon name="location-outline"></ion-icon></div>
+          <div>
+            <div class="contact-label i18n" data-fr="Emplacement" data-en="Location">Emplacement</div>
+            <div class="contact-value">Clermont-Ferrand, FR</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="sidebar-social">
+      <a href="https://www.linkedin.com/in/rim-ghannam-6b3a9826a" target="_blank" class="social-link" title="LinkedIn">
+        <ion-icon name="logo-linkedin"></ion-icon>
+      </a>
+    </div>
+  </aside>
+
+  <!-- ── MAIN ── -->
+  <div class="main-content">
+
+    <!-- TOPBAR -->
+    <div class="topbar">
+      <nav class="navbar">
+        <button class="nav-btn active" data-page="about">
+          <span class="i18n" data-fr="À propos" data-en="About">À propos</span>
+        </button>
+        <button class="nav-btn" data-page="cv">
+          <span class="i18n" data-fr="C.V" data-en="C.V">C.V</span>
+        </button>
+        <button class="nav-btn" data-page="projects">
+          <span class="i18n" data-fr="Projets" data-en="Projects">Projets</span>
+        </button>
+        <button class="nav-btn" data-page="contact">Contact</button>
+      </nav>
+
+      <button class="lang-btn" id="langToggle">
+        <span class="lang-flag" id="langFlag">🇬🇧</span>
+        <span id="langLabel">EN</span>
+      </button>
+    </div>
+
+    <!-- ══ PAGE: ABOUT ══ -->
+    <article class="page active" data-page="about">
+      <div class="page-header">
+        <h2 class="page-title i18n" data-fr="À propos de moi" data-en="About Me">À propos de moi</h2>
+        <div class="page-title-line"></div>
+      </div>
+
+      <div class="about-text">
+        <p class="i18n"
+          data-fr="Je m'appelle Rim GHANNAM, j'ai 22 ans et je suis actuellement alternante en BUT3 de Réseaux et Télécommunications chez CEGI Alfa, où j'occupe le poste de technicienne dans le service d'hébergement."
+          data-en="My name is Rim GHANNAM, I'm 22 years old and I'm currently a work-study student in my 3rd year of a Bachelor's in Networks and Telecommunications at CEGI Alfa, where I hold the position of Hosting Technician.">
+          Je m'appelle Rim GHANNAM, j'ai 22 ans et je suis actuellement alternante en BUT3 de Réseaux et Télécommunications chez CEGI Alfa, où j'occupe le poste de technicienne dans le service d'hébergement.
+        </p>
+        <p class="i18n"
+          data-fr="Depuis toujours, je suis passionnée par l'informatique, et plus particulièrement par la cybersécurité et les réseaux. La musique occupe également une place importante dans ma vie, notamment la guitare et le piano, ainsi que le fait de jouer en groupe. Ces activités m'ont permis de développer ma rigueur ainsi que mon esprit d'équipe."
+          data-en="I have always been passionate about IT, particularly cybersecurity and networking. Music also plays an important role in my life, especially guitar and piano, as well as playing in a band. These activities have helped me develop discipline and teamwork skills.">
+          Depuis toujours, je suis passionnée par l'informatique, et plus particulièrement par la cybersécurité et les réseaux. La musique occupe également une place importante dans ma vie, notamment la guitare et le piano, ainsi que le fait de jouer en groupe. Ces activités m'ont permis de développer ma rigueur ainsi que mon esprit d'équipe.
+        </p>
+        <p class="i18n"
+          data-fr="Si vous souhaitez en savoir plus sur mon parcours et mes compétences techniques, je vous invite à consulter mon profil LinkedIn ou mon portfolio ci-dessous. N'hésitez pas à me contacter si vous avez des questions."
+          data-en="If you'd like to learn more about my background and technical skills, feel free to check out my LinkedIn profile or my portfolio below. Don't hesitate to reach out if you have any questions.">
+          Si vous souhaitez en savoir plus sur mon parcours et mes compétences techniques, je vous invite à consulter mon profil LinkedIn ou mon portfolio ci-dessous. N'hésitez pas à me contacter si vous avez des questions.
+        </p>
+      </div>
+
+      <!-- SKILLS -->
+      <h3 class="section-title">
+        <ion-icon name="code-slash-outline"></ion-icon>
+        <span class="i18n" data-fr="Compétences Techniques" data-en="Technical Skills">Compétences Techniques</span>
+      </h3>
+
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-icon"><img src="./assets/images/icon-citrix.png" alt="Citrix"></div>
+          <div>
+            <h4>Virtualisation Citrix</h4>
+            <p class="i18n"
+              data-fr="Conception et gestion d'environnements virtualisés avec Citrix."
+              data-en="Design and management of virtualized environments using Citrix.">
+              Conception et gestion d'environnements virtualisés avec Citrix.
+            </p>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon"><img src="./assets/images/icon-AD.png" alt="AD"></div>
+          <div>
+            <h4>Active Directory</h4>
+            <p class="i18n"
+              data-fr="Gestion des utilisateurs, groupes et politiques de sécurité (GPO)."
+              data-en="Managing users, groups, and security policies (GPO).">
+              Gestion des utilisateurs, groupes et politiques de sécurité (GPO).
+            </p>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon"><img src="./assets/images/icon-sys.png" alt="Sys"></div>
+          <div>
+            <h4 class="i18n" data-fr="Administration Système" data-en="System Administration">Administration Système</h4>
+            <p class="i18n"
+              data-fr="Administration de serveurs Windows et Linux pour la gestion des systèmes."
+              data-en="Administration of Windows and Linux servers for system management.">
+              Administration de serveurs Windows et Linux pour la gestion des systèmes.
+            </p>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon"><img src="./assets/images/icon-res.png" alt="Réseau"></div>
+          <div>
+            <h4 class="i18n" data-fr="Gestion des Réseaux" data-en="Network Management">Gestion des Réseaux</h4>
+            <p class="i18n"
+              data-fr="Configuration et maintenance d'équipements réseau : routeurs, switches, VLANs."
+              data-en="Configuration and maintenance of network equipment: routers, switches, VLANs.">
+              Configuration et maintenance d'équipements réseau : routeurs, switches, VLANs.
+            </p>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon"><img src="./assets/images/icon-tech.png" alt="Support"></div>
+          <div>
+            <h4 class="i18n" data-fr="Support Technique" data-en="Technical Support">Support Technique</h4>
+            <p class="i18n"
+              data-fr="Assistance utilisateurs et résolution des incidents pour les services hébergés."
+              data-en="User assistance and incident resolution for hosted services.">
+              Assistance utilisateurs et résolution des incidents pour les services hébergés.
+            </p>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon"><img src="./assets/images/icon-dev.svg" alt="Dev"></div>
+          <div>
+            <h4 class="i18n" data-fr="Développement Web" data-en="Web Development">Développement Web</h4>
+            <p class="i18n"
+              data-fr="Création de sites web : HTML, CSS, JavaScript, PHP."
+              data-en="Building websites using HTML, CSS, JavaScript, PHP.">
+              Création de sites web : HTML, CSS, JavaScript, PHP.
+            </p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- ══ PAGE: CV ══ -->
+    <article class="page" data-page="cv">
+      <div class="page-header">
+        <h2 class="page-title i18n" data-fr="Curriculum Vitae" data-en="Curriculum Vitae">Curriculum Vitae</h2>
+        <div class="page-title-line"></div>
+      </div>
+
+      <div class="cv-section">
+
+        <!-- EDUCATION -->
+        <div class="timeline">
+          <h3 class="section-title">
+            <ion-icon name="school-outline"></ion-icon>
+            <span class="i18n" data-fr="Formation" data-en="Education">Formation</span>
+          </h3>
+          <ol class="timeline-list">
+            <li class="timeline-item">
+              <h4 class="i18n"
+                data-fr="BUT3 Réseaux et Télécommunications — parcours Cybersécurité"
+                data-en="Bachelor's (BUT3) Networks & Telecom — Cybersecurity track">
+                BUT3 Réseaux et Télécommunications — parcours Cybersécurité
+              </h4>
+              <div class="timeline-meta">
+                <span class="timeline-date">2022 — Présent</span>
+                <span class="timeline-place">IUT Clermont-Ferrand, UCA</span>
+              </div>
+              <p class="timeline-text i18n"
+                data-fr="Formation professionnalisante en alternance couvrant les réseaux informatiques, la cybersécurité, les télécommunications et le développement."
+                data-en="Professional work-study program covering computer networks, cybersecurity, telecommunications and development.">
+                Formation professionnalisante en alternance couvrant les réseaux informatiques, la cybersécurité, les télécommunications et le développement.
+              </p>
+            </li>
+            <li class="timeline-item">
+              <h4 class="i18n"
+                data-fr="Shouf National College (SNC) — Baccalauréat Scientifique"
+                data-en="Shouf National College (SNC) — Scientific Baccalaureate">
+                Shouf National College (SNC) — Baccalauréat Scientifique
+              </h4>
+              <div class="timeline-meta">
+                <span class="timeline-date">2020 — 2021</span>
+                <span class="timeline-place">Baakline, Liban</span>
+              </div>
+              <p class="timeline-text i18n"
+                data-fr="École homologuée française au Liban. Spécialités : Maths, Physique, SVT (+ Maths Expert)."
+                data-en="French-accredited school in Lebanon. Majors: Math, Physics, Life Sciences (+ Advanced Math).">
+                École homologuée française au Liban. Spécialités : Maths, Physique, SVT (+ Maths Expert).
+              </p>
+            </li>
+          </ol>
+        </div>
+
+        <!-- EXPERIENCE -->
+        <div class="timeline">
+          <h3 class="section-title">
+            <ion-icon name="briefcase-outline"></ion-icon>
+            <span class="i18n" data-fr="Expérience" data-en="Experience">Expérience</span>
+          </h3>
+          <ol class="timeline-list">
+            <li class="timeline-item">
+              <h4 class="i18n"
+                data-fr="Technicienne Hébergement & Support Technique"
+                data-en="Hosting Technician & Technical Support">
+                Technicienne Hébergement & Support Technique
+              </h4>
+              <div class="timeline-meta">
+                <span class="timeline-date i18n" data-fr="2023 — Présent" data-en="2023 — Present">2023 — Présent</span>
+                <span class="timeline-place">CEGI Alfa, Clermont-Ferrand</span>
+              </div>
+              <p class="timeline-text i18n"
+                data-fr="Gestion et maintenance des serveurs pour assurer la disponibilité, la sécurité et la performance des services hébergés. Support technique et résolution des incidents."
+                data-en="Management and maintenance of servers to ensure availability, security and performance of hosted services. Technical support and incident resolution.">
+                Gestion et maintenance des serveurs pour assurer la disponibilité, la sécurité et la performance des services hébergés. Support technique et résolution des incidents.
+              </p>
+            </li>
+          </ol>
+        </div>
+
+        <!-- DIVERS -->
+        <div class="timeline">
+          <h3 class="section-title">
+            <ion-icon name="musical-notes-outline"></ion-icon>
+            <span class="i18n" data-fr="Loisirs & Divers" data-en="Hobbies & Misc">Loisirs & Divers</span>
+          </h3>
+          <ol class="timeline-list">
+            <li class="timeline-item">
+              <h4 class="i18n" data-fr="Guitare" data-en="Guitar">Guitare</h4>
+              <div class="timeline-meta">
+                <span class="timeline-date">2020 — Présent</span>
+                <span class="timeline-place i18n" data-fr="Conservatoire National Supérieur de Musique, Liban" data-en="Lebanese National Higher Conservatory of Music">Conservatoire National Supérieur de Musique, Liban</span>
+              </div>
+              <p class="timeline-text i18n"
+                data-fr="Guitariste et chanteuse au sein d'un groupe de musique. J'ai commencé au conservatoire avant de continuer en France."
+                data-en="Guitarist and vocalist in a music band. Started at the conservatory before continuing in France.">
+                Guitariste et chanteuse au sein d'un groupe de musique. J'ai commencé au conservatoire avant de continuer en France.
+              </p>
+            </li>
+            <li class="timeline-item">
+              <h4 class="i18n" data-fr="Piano" data-en="Piano">Piano</h4>
+              <div class="timeline-meta">
+                <span class="timeline-date">2012 — 2013</span>
+                <span class="timeline-place i18n" data-fr="Conservatoire, Liban" data-en="Conservatory, Lebanon">Conservatoire, Liban</span>
+              </div>
+              <p class="timeline-text i18n"
+                data-fr="Pratique du piano en autodidacte depuis quelques années."
+                data-en="Self-taught pianist for a few years.">
+                Pratique du piano en autodidacte depuis quelques années.
+              </p>
+            </li>
+          </ol>
+        </div>
+
+      </div>
+    </article>
+
+    <!-- ══ PAGE: PROJECTS ══ -->
+    <article class="page" data-page="projects">
+      <div class="page-header">
+        <h2 class="page-title i18n" data-fr="Mes Projets" data-en="My Projects">Mes Projets</h2>
+        <div class="page-title-line"></div>
+      </div>
+
+      <div class="projects-grid">
+        <a href="https://pingsy.xyz" target="_blank" class="project-card">
+          <div class="project-thumb">
+            <img src="./assets/images/project-1.png" alt="Zam's Portfolio" loading="lazy">
+            <div class="project-overlay"><ion-icon name="open-outline"></ion-icon></div>
+          </div>
+          <div class="project-info">
+            <h3>Zam's Portfolio</h3>
+            <span class="project-tag i18n" data-fr="Développement Web" data-en="Web Development">Développement Web</span>
+          </div>
+        </a>
+
+        <a href="./assets/images/PPP_GHANNAM_TDA.pdf" target="_blank" class="project-card">
+          <div class="project-thumb">
+            <img src="./assets/images/project-2.png" alt="Formation R&T" loading="lazy">
+            <div class="project-overlay"><ion-icon name="document-outline"></ion-icon></div>
+          </div>
+          <div class="project-info">
+            <h3 class="i18n" data-fr="Formation R&T" data-en="R&T Training Brochure">Formation R&T</h3>
+            <span class="project-tag">Brochure</span>
+          </div>
+        </a>
+
+        <a href="./assets/images/sae24/index.html" target="_blank" class="project-card">
+          <div class="project-thumb">
+            <img src="./assets/images/project-3.png" alt="SAE24" loading="lazy">
+            <div class="project-overlay"><ion-icon name="open-outline"></ion-icon></div>
+          </div>
+          <div class="project-info">
+            <h3 class="i18n" data-fr="Projet BUT1 — SAE24" data-en="BUT1 Project — SAE24">Projet BUT1 — SAE24</h3>
+            <span class="project-tag i18n" data-fr="Développement Web" data-en="Web Development">Développement Web</span>
+          </div>
+        </a>
+
+        <a href="./assets/images/WEB/index.html" target="_blank" class="project-card">
+          <div class="project-thumb">
+            <img src="./assets/images/project-4.png" alt="Portfolio BUT1" loading="lazy">
+            <div class="project-overlay"><ion-icon name="open-outline"></ion-icon></div>
+          </div>
+          <div class="project-info">
+            <h3 class="i18n" data-fr="Portfolio BUT1" data-en="BUT1 Portfolio">Portfolio BUT1</h3>
+            <span class="project-tag i18n" data-fr="Développement Web" data-en="Web Development">Développement Web</span>
+          </div>
+        </a>
+      </div>
+    </article>
+
+    <!-- ══ PAGE: CONTACT ══ -->
+    <article class="page" data-page="contact">
+      <div class="page-header">
+        <h2 class="page-title">Contact</h2>
+        <div class="page-title-line"></div>
+      </div>
+
+      <div class="contact-grid">
+        <div class="map-box">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2688.6078709270536!2d3.1150581760274033!3d45.75219047910469!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47f74c41c1555555%3A0x12345abcd1234abcd!2s13%20All%C3%A9e%20Evariste%20Galois%2C%2063170%20Aubi%C3%A8re%2C%20France!5e0!3m2!1sen!2sfr!4v1720794039803!5m2!1sen!2sfr"
+            allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+
+        <div class="contact-form-box">
+          <p class="form-intro i18n"
+            data-fr="C'était un plaisir de partager mon parcours avec vous. Merci pour votre temps, et je vous souhaite une belle journée !"
+            data-en="It was a pleasure sharing my journey with you. Thank you for your time, and I wish you a wonderful day!">
+            C'était un plaisir de partager mon parcours avec vous. Merci pour votre temps, et je vous souhaite une belle journée !
+          </p>
+
+          <h3 class="section-title" style="font-size:16px; margin-bottom:16px;">
+            <ion-icon name="paper-plane-outline"></ion-icon>
+            <span class="i18n" data-fr="Formulaire de Contact" data-en="Contact Form">Formulaire de Contact</span>
+          </h3>
+
+          <form data-form>
+            <div class="form-row">
+              <input type="text" class="form-input" placeholder="Nom Prénom" data-form-input required>
+              <input type="email" class="form-input" placeholder="Email" data-form-input required>
+            </div>
+            <div class="form-group">
+              <textarea class="form-input" placeholder="Message" data-form-input required></textarea>
+            </div>
+            <button class="submit-btn" type="submit" data-form-btn disabled>
+              <ion-icon name="paper-plane-outline"></ion-icon>
+              <span class="i18n" data-fr="Envoyer" data-en="Send">Envoyer</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</div>
+
+<script>
+'use strict';
+
+// ── NAVIGATION ──
+const navBtns = document.querySelectorAll('.nav-btn[data-page]');
+const pages = document.querySelectorAll('.page[data-page]');
+
+navBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const target = btn.dataset.page;
+    navBtns.forEach(b => b.classList.remove('active'));
+    pages.forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelector(`.page[data-page="${target}"]`).classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+});
+
+// ── SIDEBAR TOGGLE (mobile) ──
+const sidebarToggle = document.getElementById('sidebarToggle');
+const sidebarContacts = document.getElementById('sidebarContacts');
+const toggleIcon = document.getElementById('toggleIcon');
+
+sidebarToggle.addEventListener('click', () => {
+  sidebarContacts.classList.toggle('open');
+  toggleIcon.name = sidebarContacts.classList.contains('open')
+    ? 'chevron-up-outline'
+    : 'chevron-down-outline';
+});
+
+// ── CONTACT FORM ──
+const forms = document.querySelectorAll('[data-form]');
+forms.forEach(form => {
+  const inputs = form.querySelectorAll('[data-form-input]');
+  const btn = form.querySelector('[data-form-btn]');
+  inputs.forEach(input => {
+    input.addEventListener('input', () => {
+      btn.disabled = !form.checkValidity();
+    });
+  });
+});
+
+// ── LANGUAGE TOGGLE ──
+let currentLang = 'fr';
+
+const langBtn = document.getElementById('langToggle');
+const langFlag = document.getElementById('langFlag');
+const langLabel = document.getElementById('langLabel');
+
+function applyLang(lang) {
+  document.querySelectorAll('.i18n').forEach(el => {
+    const val = el.dataset[lang];
+    if (val) el.textContent = val;
+  });
+  // Update placeholder on form inputs
+  if (lang === 'en') {
+    document.querySelectorAll('[data-form-input]').forEach((el, i) => {
+      if (el.tagName === 'INPUT' && el.type === 'text') el.placeholder = 'Full Name';
+      if (el.tagName === 'INPUT' && el.type === 'email') el.placeholder = 'Email Address';
+      if (el.tagName === 'TEXTAREA') el.placeholder = 'Your Message';
+    });
+  } else {
+    document.querySelectorAll('[data-form-input]').forEach((el, i) => {
+      if (el.tagName === 'INPUT' && el.type === 'text') el.placeholder = 'Nom Prénom';
+      if (el.tagName === 'INPUT' && el.type === 'email') el.placeholder = 'Adresse e-mail';
+      if (el.tagName === 'TEXTAREA') el.placeholder = 'Votre Message';
+    });
+  }
+  document.documentElement.lang = lang;
+}
+
+langBtn.addEventListener('click', () => {
+  currentLang = currentLang === 'fr' ? 'en' : 'fr';
+  if (currentLang === 'en') {
+    langFlag.textContent = '🇫🇷';
+    langLabel.textContent = 'FR';
+  } else {
+    langFlag.textContent = '🇬🇧';
+    langLabel.textContent = 'EN';
+  }
+  applyLang(currentLang);
+});
+</script>
+</body>
+</html>
