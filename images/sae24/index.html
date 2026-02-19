@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="assets/css/styles.css">
+
+        <!-- =====BOX ICONS===== -->
+        <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+
+        <title>SAE_24</title>
+    </head>
+    <body>
+        <!--===== HEADER =====-->
+        <header class="l-header">
+            <nav class="nav bd-grid">
+                <div>
+                    <a href="" class="nav__logo">
+                        <img src="assets/img/uca.png" alt=""></a>
+                </div>
+
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="#presentation" class="nav__link active">Presentation</a></li>
+                        <li class="nav__item"><a href="#tache" class="nav__link">Tâches</a></li>
+                        <li class="nav__item"><a href="#competence" class="nav__link">Compétences</a></li>
+                        <li class="nav__item"><a href="#documentation" class="nav__link">Documentation</a></li>
+                        <li class="nav__item"><a href="#resultat" class="nav__link">Résultat</a></li>
+                    </ul>
+                </div>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bx-menu'></i>
+                </div>
+            </nav>
+        </header>
+
+        <main class="l-main">
+            <!--===== presentation =====-->
+            <section class="presentation bd-grid" id="presentation">
+                <div class="presentation__data">
+                    <h1 class="presentation__title">SAE_24 : <br><span class="presentation__title-color">Projet Intégratif</span></h1>
+                        <p>
+                            Le but c'est de créer, et de visualiser l'infrastructure du réseaux d'une entreprise; en utilisant le logiciel GNS3 qui est un logiciel libre qui permet l'émulation ou la simulation de réseaux informatiques.
+
+                        </p><br>
+
+                    <a href="assets/img/SAE 24.pdf" class="button">Présentation Générale</a>
+                </div>
+                
+            </section>
+
+            <!--===== Plan =====-->
+            <section class="tache section " id="tache">
+                <h2 class="section-title">Ordonnancement des tâches</h2>
+
+                <div class="tache__container bd-grid">
+                    
+                    <div>   
+                        <p class="tache__text">
+                            <ul>
+                                <li> Voici l'ordonnancement des tâches sur 5 semaines, cela n'a pas été pleinement respecté car j'ai trouvé le projet assez difficile, et je n'ai pas reussi de le terminer.</li>
+                                
+                                <a href="assets/img/tachex.ods">
+                                    <img src="assets/img/tache.png" alt=""></a>
+                                <li>(pour télécharger le fichier excel cliquez sur l'image)</li>
+                         
+                            </ul>
+
+                            </p>           
+                    </div>                                   
+                </div>
+            </section>
+
+            <!--===== Compétence =====-->
+            <section class="competence section" id="competence">
+                <h2 class="section-title">Compétences</h2>
+
+                <div class="competence__container bd-grid">          
+                    
+                    
+                    <div>              
+                        <a href="assets/img/comp.png">
+                        <img src="assets/img/comp.png" alt="" class="competence__img"></a>
+                        
+                    </div>
+                   
+                    <h2 class="competence__subtitle">Auto-evaluation des competence</h2>
+                    <p class="competence__text">
+                         voici l'auto-évaluation de la maîtrise de mes compétences
+                         l'annotation est sur 5.
+                         <ul>
+                             <li>5 --> Trés bonne maitrise</li>
+                             <li>4 --> Maitrise</li>
+                             <li>3 --> Niveau juste</li>
+                             <li>2 --> Connaissance des bases</li>
+                             <li>1 --> Niveau faible</li>
+                         </ul>
+                    </p>
+
+                </div>
+            </section>
+
+
+
+
+            <!--===== documentation =====-->
+            <section class="documentation section" id="documentation">
+                <h2 class="section-title">Documentation</h2>
+
+                <div class="projets__container bd-grid">
+
+                    <p> 
+                        
+                        <em><span class="note__color">Side note :</span>
+                            As for the documentation, i’m going to detail what i did in this project, though i just want to say i did not find this projet easy whatsoever... 
+                            In addition, considering i worked on it alone, i didnt progress as fast as the others.
+                            i wanna mention i didn’t finish the projet as it was really long and not everything worked right so in the end i decided to focus on things im more sure of and things i feel like i can progress in ; in my case it was just doing the rooting and the networking part and the website you’re reading right now, as this is where i feel more competent.<br>
+                            So i'm first going to detail what i technically did in this project, and after that im going to explain theoritically what i could've done with more time (i want to add the software was not easy to handle and it bugged many times so i couldnt progress in fonction of the ammount of time given. 
+                        </em><br>
+                        (im going to note <span class="note__color">"Done"</span> for the things i've done in GNS3 and <span class="note__color">"Undone"</span> to things ive done theoritically and not on GNS3)
+                    </br><br><br>
+                    </p>
+
+
+                    <!--===== Done =====-->
+
+
+                    <p>
+                        <span class="text__color">Explaining The Scheme :</span><span class="note2__color">   Done</span><br></br>
+                        Im going to start by showcasing the infrastructure i made regarding the entreprise's network :<br></br>
+                         
+                        <ol>
+                            <li>First of all, i placed one pereferic router;</li>
+                            <li>Then i placed a general switch connected to it;</li>
+                            <li>Connected to that i placed 3 switches; </li>
+                            <li>Then i put 3 PCs on each;</li>
+                        </ol>
+
+
+                        <br></br>As for the scheme thats it, now we're going to move on to more technical stuff and confogurations on each of the materials.
+                    </p>
+
+
+                    <p>
+                        <br></br><span class="text__color">PC Configurations :</span></span><span class="note2__color">   Done</span><br></br>
+                        As for the PC's configurations, the goal was to set ip adresses to each on PC and later on assure connectivity <br></br>
+                       
+                       <ol>
+                           <li>First of all i turned the interface UP as it was DOWN by default : <br></br>
+                           <em>ip link set ens3 up</em>  </li>   <br></br>
+                           <li>Second : i added the IP address:<br></br>
+                            <em>ip addr add 192.168.10.10/24 dev ens3     </em> (in this example that's the configuration of PC1 the same was done to other Pcs) </li> <br></br>
+                            <li>And Third : we add the route to the router (which we'll configure after)<br></br>
+                            <em>ip r add default via 192.168.10.1</em>  </li><br></br>
+                        </ol>
+
+
+                        Id like to lastly mention the IP Adressing on each PC so:
+                        <ul>
+                            <br></br><li>PC 1 : 192.168.10.10 ; PC 4 : 192.168.10.11 ; PC 7 : 192.168.10.12 ;</li>
+                            <br></br><li>PC 2 : 192.168.20.10 ; PC 5 : 192.168.20.11 ; PC 8 : 192.168.20.12 ;</li>
+                            <br></br><li>PC 3 : 192.168.30.10 ; PC 6 : 192.168.30.11 ; PC 9 : 192.168.30.12 ;</li>
+                        </ul>
+                        
+                    </p>
+
+                    <p>
+                        <br></br><span class="text__color">The Switches Configurations :</span></span><span class="note2__color">   Done</span><br></br>
+                        Well, time to configure the switches! <br></br> I set 3 vlans on each switch and then attributed a vlan to each PC connected to that switch.</br>After that i did a trunk link between each switch and one between the switch and the router.</br> That's a breif explination of what i did, but now i'll run you through the details of each configuration.<br></br>
+                       
+                       <ol>
+                           <li>First of all i created 3 vlans on each switch (Finnace, Ressourse Humaine, Technique) <br></br>
+                                 we just need to be on the config mode of the switch then use the command </br>
+                                 <em>sw1(config)# vlan 10</em> </br>
+                                 then <em>sw1(config-vlan)# name finnace </em> </br>for example<br></br>
+                            </li>
+
+                           <li>Second : i affect the right ports to the each vlan, using the commands: <br></br>
+                            <em>sw1(config)# interface fa1/1</br>
+                            sw1(config-if)# switchport mode access</br>
+                            sw1(config-if)# switchport access vlan 10</br></em>
+                           </li><br></br>
+                           <li>Third : i configure the port leading to the other switch in the trunk mode (in my case fa1/0), so:<br><br>
+                            <em>sw1(config)# interface fa1/0<br>
+                            sw1(config-if)# switchport mode trunk</em>
+                           </li><br><br>
+                            
+                            <li>
+                                Lastly id like to show the final configurationon the switch 1 ( i want to precise the same configuration was made on the 2 other switches)
+                                <br><br>
+                                Here's the vlans created<br>
+                                <a href="assets/img/sw1.png">
+                                <img src="assets/img/sw1.png" alt=""></a> 
+                                <br>
+                                And the trunk link<br>
+                                <a href="assets/img/sw1trunk.png">
+                                <img src="assets/img/sw1trunk.png" alt=""></a> 
+
+                            </li>
+
+                            <br><br>As for the general Switch its mainly composed of 4 trunk links:
+
+                            <br><a href="assets/img/swtrunk.png">
+                            <img src="assets/img/swtrunk.png" alt=""></a>  
+                            
+                        </ol>
+
+                    </p>
+
+                    <p>
+                        <br></br><span class="text__color">The Router's Configuration :</span></span><span class="note2__color">   Done</span><br></br>
+                        As for the routers configuration, i configured 3 Subinterfaces with diffrent networks ,then i proceeded to activating the NAT :<br>
+                        <br> I'll site the IP commands first, then i'll show the NAT config commands then i'll proceed to the final configuration of the router.<br><br>
+                        <em>router(config)# interface 0/0.10<br>
+                            router(config-subif)# encapsulation dot1q 10<br>
+                            router(config-subif)# ip address 192.168.10.1 255.255.255.0<br>
+                            router(config-subif)# exit<br>
+                        </em>
+                   
+                        <br>These are IPs affected on each subinterface :<br>
+                        <ol>
+                            <li>Fa 0/0.10 : 192.168.10.1</li>
+                            <li>Fa 0/0.20 : 192.168.20.1</li>
+                            <li>Fa 0/0.30 : 192.168.30.1</li>
+                            <br><a href="assets/img/router.png">
+
+                            <img src="assets/img/router.png" alt=""></a> 
+                        </ol>
+                        As for the NAT's configuration, here are the required steps to do so : 
+                        <ol>
+                            <li>Configure the router’s inside interface using the ip nat inside command.</li>
+                            <li>Configure the router’s outside interface using the ip nat outside command.</li>
+                            <li>Configure an ACL that has a list of the inside source addresses that will be translated.</li>
+                            <li>Configure the pool of global IP addresses using the ip nat pool NAME FIRST_IP_ADDRESS LAST_IP_ADDRESS netmask SUBNET_MASK command.</li>
+                            <li>Enable dynamic NAT with the ip nat inside source list ACL_NUMBER pool NAME global configuration command.</li>
+                            <br><a href="assets/img/router2.png">
+
+                                <img src="assets/img/router2.png" alt=""></a> 
+
+                        </ol>      
+
+                    </p>
+
+                    <!--===== Undone =====-->
+
+
+
+                    <p>
+                        <br></br><span class="text__color">Downloading the Graphical User Interface (GUI) : </span></span><span class="note2__color">   Undone</span><br></br>
+                        The default Debian PCs we're working with lack a graphical user interface, the GUI provides the graphical interface to interact with your system. Typically, administrators use CLI-based tools and configurations to manage it. This part of the document explains how to set up a desktop on a Debian-based Linux server.
+
+                        <ol>
+                            <li>
+                                Execute the below commands to update the Debian system :<br><br>
+                                # sudo apt update<br>
+                            # sudo apt -y upgrade</li><br>
+
+                            <li>Install the GNOME desktop environment using the below command. The installation process will require some time to get completed.<br>
+                                <br># sudo apt -y install task-gnome-desktop
+                            </li><br>
+                            <li>Once the GNOME desktop installation has been completed, the next step is to assign the graphical runlevel.<br>
+
+                                <br>Change the default boot to graphical runlevel by executing the below command to ensure that the next system boot goes to GUI.<br><br>
+                                # sudo systemctl set-default graphical.target
+                            </li><br>
+                            <li>By default, root user login is disabled via GNOME Display Manager (GDM). For enabling root access, follow the below steps:<br><br>
+
+                                Log in to the server through SSH and edit the GDM configuration file /etc/pam.d/gdm-password using any editor of choice.<br><br>
+                                <em># nano /etc/pam.d/gdm-password</em><br><br>
+                                Locate the line that reads as below :<br><br>
+                                <em>  required  pam_succeed_if.so user != root quiet_success</em><br><br>
+                                Remove/comment out this line by prefixing # and then save and close the editor.
+                            </li><br>
+                            <li>Reboot the Debian server with the reboot command.</li>
+                        </ol>
+
+                    </p>
+                    <p>
+                        <br></br><span class="text__color">DHCP server : </span></span><span class="note2__color">   Undone</span><br></br>
+
+                        The Dynamic Host Configuration Protocol (DHCP) is a network service that enables host computers to be automatically assigned settings from a server as opposed to manually configuring each network host. Computers configured to be DHCP clients have no control over the settings they receive from the DHCP server, and the configuration is transparent to the computer's user. <br><br>
+                        
+
+                        We're gonna start off by installing it then configuring it.<br>
+
+
+                        <ol>
+                            <li>At a terminal prompt, enter the following command to install dhcpd: <br><br>
+                            
+                            <em>sudo apt-get install isc-dhcp-server</em>
+                            </li><br>
+
+                            <li> The following steps will help you configure the service :<br>
+                            <br>
+                            <em>nano -w /etc/dhcp/dhcpd.conf<br><br>
+                            
+                                # Sample /etc/dhcpd.conf <br>
+                                default-lease-time 600;<br>
+                                max-lease-time 7200;<br>
+                                option subnet-mask 255.255.255.0;<br>
+                                option broadcast-address 192.168.1.255;<br>
+                                option routers 192.168.1.254;<br>
+                                option domain-name-servers 192.168.1.1, 192.168.1.2;<br>
+                                option domain-name "mydomain.example";<br>
+                                <br>
+                                subnet 192.168.1.0 netmask 255.255.255.0 {<br>
+                                range 192.168.1.10 192.168.1.100;<br>
+                                range 192.168.1.150 192.168.1.200;<br>
+                                } </em><br><br>
+
+                                This will result in the DHCP server giving a client an IP address from the range 192.168.1.10-192.168.1.100 or 192.168.1.150-192.168.1.200. It will lease an IP address for 600 seconds if the client doesn't ask for a specific time frame. Otherwise the maximum (allowed) lease will be 7200 seconds. The server will also "advise" the client that it should use 255.255.255.0 as its subnet mask, 192.168.1.255 as its broadcast address, 192.168.1.254 as the router/gateway and 192.168.1.1 and 192.168.1.2 as its DNS servers. <br><br>
+
+                                Start and stop service : <br><br>
+
+                                <em> sudo service isc-dhcp-server restart<br>
+                                    sudo service isc-dhcp-server start<br>
+                                    sudo service isc-dhcp-server stop<br> </em>
+                            </li>
+
+                            <br><br>Thats usually how it goes, i didn't have the time to apply it to my infrastructure so for the following i just what i wouldve done theoritically based on TP classes.
+
+                        </ol>
+
+
+
+                        
+
+
+
+
+
+
+
+
+
+
+
+                    </p>
+
+                    <p>
+                        <br></br><span class="text__color">Web server : </span></span><span class="note2__color">   Undone</span><br></br>
+                        Now we're gonna move on to intalling and configuring Apache which will allow us to own a Web server:<br><br>
+                        First we'll define some terms: <br><br>
+                        Apache is an open source web server that’s available for Linux servers free of charge.<br>
+
+                        <ol>
+                            <li>
+                                To install Apache, install the latest meta-package apache2 by running:<br><br>
+                                <em>sudo apt update<br>
+                                    sudo apt install apache2</em>
+                            </li><br>
+                            <li>By default, Apache comes with a basic site enabled. We can modify its content in /var/www/html or settings by editing its Virtual Host file found in /etc/apache2/sites-enabled/000-default.conf.<br><br>
+
+                            So let’s start by creating a folder for our new website in /var/www/ by running :<br><br> 
+                            <em>sudo mkdir /var/www/wordpress</em></li><br>
+
+                            <li>Then we go to the configuration file by executing :<br>
+                            <br> <em>cd /etc/apache2/site-enable</em>      
+                            </li><br>
+
+                            <li>Then we copy the default configuration : <br>
+                            <br><em>cp 000-default.conf default.conf</em></li><br>
+
+                            <li>Then we delete the default configuration : <br>
+                            <br> <em>rm 000-default.conf</em></li><br>
+
+                            <li>Now we modify the configuration file newly created : <br>
+                            <br> <em>nano default.conf</em><br>
+                            <br>then modify the line that says : 
+                            <br><br> <em>DocumentRoot /var/www/html</em> <br> to <br>
+                            <em>DocumentRoot /var/www/wordpress</em>
+                            </li><br>
+
+                            <li>Lastly restart Apache with : <br>
+                            <br> 
+                            <em>systemctl restart apache2</em></li>
+                            
+                        </ol>
+                    </p>
+
+                    <p>
+                        <br></br><span class="text__color">FTP server : </span></span><span class="note2__color">   Undone</span><br></br>
+
+                        FTP (File Transfer Protocol) is a standard network protocol used to transfer files to and from a remote network. There are several open-source FTP servers available for Linux. The most known and widely used are PureFTPd , ProFTPD , and vsftpd . I ’ll be installing vsftpd (Very Secure Ftp Daemon), a stable, secure, and fast FTP server.<br><br>
+
+
+                        <ol>
+                            <li>The vsftpd package is available in the Ubuntu repositories. To install it, execute the following commands:<br><br>
+                                <em>sudo apt update<br>
+                                sudo apt install vsftpd</em>
+                            <br><br>
+                            to print it's status we execute the command :<br> <br>
+                            <em>sudo systemctl status vsftpd</em></li><br>
+
+                            <li>Start by opening the vsftpd configuration file: <br>
+
+                                <br>sudo nano /etc/vsftpd.conf<br>
+
+                            </li><br>
+                            <li>I’ll allow access to the FTP server only to the local users. So search for the anonymous_enable and local_enable directives and verify your configuration match to lines below:<br><br>
+                            <em>anonymous_enable=NO<br>
+                                local_enable=YES<br>
+                                write_enable=YES
+                                </em><br><br>
+                            </li>
+                            
+                            <li>
+                                To prevent local FTP users to access files outside of their home directories, uncomment the lne starting with chroot_local_user:<br><br>
+                                <em>
+                                    chroot_local_user=YES
+                                </em><br><br>
+
+                                By default, for security reasons, when chroot is enabled, vsftpd will refuse to upload files if the directory that the users are locked in is writable.
+
+                                <br>Enable the allow_writeable_chroot directive : <br><br>
+                                <em>allow_writeable_chroot=YES</em>
+                            </li><br>
+
+                            <li>By default, vsftpd uses active mode. To use passive mode, set the minimum and maximum range of ports: <br><br>
+                            <em>pasv_min_port=30000<br>
+                                pasv_max_port=31000
+                            </em><br><br>
+                        
+                            You can use any port for passive FTP connections. When the passive mode is enabled, the FTP client opens a connection to the server on a random port in the range you have chosen.</li><br>
+
+                            <li> Limiting User Login: You can configure vsftpd to permit only certain users to log in. To do so, add the following lines at the end of the file:<br><br>
+
+                                <em>
+                                    userlist_enable=YES<br>
+                                    userlist_file=/etc/vsftpd.user_list<br>
+                                    userlist_deny=NO
+                                </em><br><br>
+
+                                When this option is enabled, you need to explicitly specify which users can log in by adding the user names to the /etc/vsftpd.user_list file (one user per line).
+                            </li><br>
+
+                        </ol>
+                    </p>
+
+                    <p>
+                        <br></br><span class="text__color">Telephony server : </span></span><span class="note2__color">   Undone</span><br></br>
+
+                        Next up is a Telephony server and for that we're gonna be using Asterisk,<br><br>
+                        Asterisk makes it possible to transform a computer into a high-performance telephony switch; It comes in the form of free software published by the American company Digium.<br><br>
+                        Here i'm mostly gonna site what we did in our practical time in class to configure it, as i didn't have the time to mannipulate it on my infrastructure.
+
+
+                        <ol>
+                            <li>First of all we're gonna download it using the commands :<br><br>
+                            <em>sudo apt update<br>
+                                sudo apt upgrade </em><br><br>
+                            Then we proceed with the installation of the dependencies :<br><br>
+                            <em>sudo apt install build-essential libxml2-dev libncurses5-dev linux-headers-`uname -r` libsqlite3-dev libssl-dev libedit-dev uuid-dev libjansson-dev</em>
+                            <br><br> Then we install it by the following commands: <br><br>
+
+                            <em>mkdir /usr/src/asterisk<br>
+                                cd /usr/src/<br>asterisk  <br>                     
+                                wget http://downloads.asterisk.org/pub/telephony/asterisk/asterisk-18-current.tar.gz<br>
+                                tar -xvzf asterisk-18-current.tar.gz
+                                cd asterisk-18.6.0<br>
+                                ./configure --with-jansson-bundled<br>
+                                make menuselect</em>
+                            <br><br> 
+
+                            In the menu , go to Core Sound Package and check using the Space key CORE-SOUNDS-FR-ULAW. Exit by pressing the Esc key. Then go to Music On Hold File Packages, uncheck MOH-OPSOUND-WAV and check MOH-OPSOUND-ULAW. Finally, go to Extras Sound Packages and check EXTRA-SOUNDS-FR-ULAW.<br><br>
+                            
+                            Return to the main screen and press Esc to finish and press S to save.<br><br>
+                            
+                            Finally type the following commands to complete the installation:<br><br>
+
+                            <em>make<br>
+                                make install<br>
+                                make samples<br>
+                                make config</em><br><br>
+
+
+                                Then finally run asterisk using the command : <br><br>
+                                <em>/etc/init.d/asterisk start</em><br><br>
+
+                                And to run the console: <br><br>
+
+                                <em>sudo asterisk -rvvvv</em>
+
+
+                            </li><br>
+
+                                <li>
+                                    The Asterisk configuration is based on the following configuration files:<br><br>
+
+                                    
+                                    /etc/asterisk/sip.conf : Global configuration of Asterisk<br>
+                                    /etc/asterisk/users.conf : Users configuration<br>
+                                    /etc/asterisk/extensions.conf : Dialplan configuration <br>
+                                    /etc/asterisk/voicemail.conf : Messages configuration<br>
+
+                                </li>                          
+                        </ol>
+
+
+
+
+
+
+
+                    </p>
+                    
+                    <p>
+
+                        <br></br><span class="text__color">Brief summary :</span><br></br>
+                        <br>Heres a brief summary of what i've done so far:
+                        <ol>
+                            <li>I placed 3 switches and one in addition that was more general and was mainly for trunking.</li>
+                            <li>I added 3 VLANs on each and added trunk links where needed.</li>
+                            <li>I've placed a periferic router on which i've configured 3 Subinterfaces (Each network was affected to a VLAN).</li>
+                            <li>I've configured the PCs and affected all the IPs and Routes needed.<br> <em>in this step pinging between the machines works in addition they can ping the router.</em></li>
+                            <li>Here i've added a external network a NAT and i linked it to the router. </li>
+                            <li>Then i configured the router to it can dynamically NAT.</li>
+
+
+                        </ol>
+
+                    </p>
+                </div>
+            </section>
+
+            <!--====Résultat====-->
+            <section class="resultat section" id="resultat">
+                <h2 class="section-title">Résultat</h2>
+                <div class="resultat__container bd-grid">
+                    
+                    <p class="resultat__text">
+                        <ul> 
+                            <li>Voici les résultats + le schema , comme je l'ai mentionné, tout n'a pas été terminé à la fin...</li> 
+                            <li>Mais le ping dans l'inter-vlan fonctionne; le ping vers le routeur fonctionne</li>
+                            <li>Pour le NAT je travaillais encore dessus, j'ai écrit les commandes appliqué sur le site. En plus des commande qui vinnent après, pas tout a fonctionné correctement. </li>
+
+
+                            <li><a href="assets/img/sae.png">
+                            <img src="assets/img/sae.png" alt=""></a>
+                            </li>   
+                         
+                          
+                        </ul>
+                    </p>
+                </div>
+            </section>
+           
+        <!--===== FOOTER =====-->
+        <footer class="footer">
+            <p class="footer__title">SAE_24</p>
+            <p> Merci d'avoir pris le temps de lire mon site :) </p>
+           
+            
+        </footer>
+
+        <!--===== SCROLL REVEAL=====-->
+        <script src="https://unpkg.com/scrollreveal"></script>
+
+        <!--===== MAIN JS =====-->
+        <script src="assets/js/main.js"></script>
+    </body>
+</html>
